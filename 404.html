@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bu sayfa artık yok</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="robots" content="noindex" />
+</head>
+
+<body class="closed-screen">
+  <div class="closed-box" aria-label="Kayıp sayfa">
+    <h1 class="closed-title">Bu sayfa artık yok.</h1>
+    <p class="closed-sub">Bir mektup okundu… ve sessizce kayboldu.</p>
+  </div>
+
+  <script>
+    // 404 sayfasında etkileşimleri kilitle (tam "yok olmuş" hissi)
+    (function () {
+      const stop = (e) => { e.preventDefault(); e.stopPropagation(); return false; };
+      window.addEventListener("click", stop, true);
+      window.addEventListener("keydown", stop, true);
+      window.addEventListener("mousedown", stop, true);
+      window.addEventListener("touchstart", stop, true);
+      window.addEventListener("wheel", stop, { capture: true, passive: false });
+      window.addEventListener("contextmenu", stop, true);
+      document.documentElement.style.pointerEvents = "none";
+    })();
+  </script>
+</body>
+</html>
