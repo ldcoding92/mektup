@@ -4,16 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bir Mektup</title>
-
   <link rel="stylesheet" href="style.css" />
   <meta name="description" content="Okunup kaybolan tek sayfalık bir mektup." />
 </head>
 
 <body>
   <div class="bg-grain" aria-hidden="true"></div>
+  <div id="aurora" class="aurora" aria-hidden="true"></div>
+  <canvas id="stars" class="stars" aria-hidden="true"></canvas>
+  <canvas id="snow" class="snow" aria-hidden="true"></canvas>
 
   <main class="stage" id="app" role="main">
-    <article class="paper" aria-label="Mektup">
+    <article class="paper" id="paper" aria-label="Mektup">
+      <div id="sheen" class="sheen" aria-hidden="true"></div>
+
       <header class="paper__header">
         <p class="stamp">📮</p>
         <div class="paper__meta">
@@ -22,57 +26,56 @@
         </div>
       </header>
 
-      <section class="letter">
-  <p class="salutation">Sevgili sen,</p>
+      <!-- Mektup (SENİN METİN) -->
+      <section class="letter" id="letter">
+        <p class="salutation reveal">Sevgili sen,</p>
 
-  <p>
-    Bugün doğum günün. Bu cümleyi yazmak bile, insanın içinden geçen bazı eski sesleri
-    yumuşatıyor. Uzun zamandır ayrı yollardayız; bunu inkâr etmiyorum, hatta olduğu gibi kabul ediyorum.
-    Yine de bazı günler vardır, mesafe ne kadar artarsa artsın, insanın içinde küçük bir saygı durağı açar.
-    Bugün o günlerden biri.
-  </p>
+        <p class="reveal">
+          Bugün doğum günün. Bu cümleyi yazmak bile, insanın içinden geçen bazı eski sesleri yumuşatıyor.
+          Uzun zamandır ayrı yollardayız; bunu inkâr etmiyorum, hatta olduğu gibi kabul ediyorum.
+          Yine de bazı günler vardır, mesafe ne kadar artarsa artsın, insanın içinde küçük bir saygı durağı açar.
+          Bugün o günlerden biri.
+        </p>
 
-  <p>
-    Bu satırlar bir geri dönüş isteği değil; sadece, bir zamanlar birbirine
-    iyi gelmeye çalışmış iki insanın geçmişe dönüp sakin bir selam bırakması. Bazen iki kişi,
-    aynı niyetle başlayıp farklı şekilde yorulur. Bazen sevgi, doğru olduğu hâlde yetmeyebilir;
-    bazen doğruluk, iyi niyeti bile taşımakta zorlanır.
-  </p>
+        <p class="reveal">
+          Bu satırlar bir geri dönüş isteği değil; sadece, bir zamanlar birbirine iyi gelmeye çalışmış iki insanın
+          geçmişe dönüp sakin bir selam bırakması. Bazen iki kişi, aynı niyetle başlayıp farklı şekilde yorulur.
+          Bazen sevgi, doğru olduğu hâlde yetmeyebilir; bazen doğruluk, iyi niyeti bile taşımakta zorlanır.
+        </p>
 
-  <p>
-    İçimde kırgınlıkların izi var, evet. Ama o izlerin üzerine suç koymak istemiyorum.
-    Kimin nerede eksik kaldığını, kimin hangi cümlede yorulduğunu tek tek saymak kolay;
-    asıl zor olan, tüm bunların içinde insan kalabilmek. Ben bugün bunu seçiyorum:
-    Çünkü geçmişi sertleştirerek değil, yumuşatarak taşımanın daha doğru olduğuna inanıyorum.
-  </p>
+        <p class="reveal">
+          İçimde kırgınlıkların izi var, evet. Ama o izlerin üzerine suç koymak istemiyorum.
+          Kimin nerede eksik kaldığını, kimin hangi cümlede yorulduğunu tek tek saymak kolay;
+          asıl zor olan, tüm bunların içinde insan kalabilmek. Ben bugün bunu seçiyorum:
+          Çünkü geçmişi sertleştirerek değil, yumuşatarak taşımanın daha doğru olduğuna inanıyorum.
+        </p>
 
-  <p>
-    Doğum gününü kutlarken sana şunu dilemek istiyorum: Yeni yaşın daha çok mutlu olduğun bir yılı getirsin. 
-    Hayatın senden sürekli bir şey “kanıtlamanı” istemesin.
-    İyi gelen şeyler gecikmesin. Yük gibi duranlar, yavaş yavaş hafiflesin.
-    Kendini sevmek için büyük nedenler aramak zorunda kalma; küçük, sıradan günler bile
-    yeterince iyi olsun. Çünkü sen değerlisin.
-  </p>
+        <p class="reveal">
+          Doğum gününü kutlarken sana şunu dilemek istiyorum: Yeni yaşın daha çok mutlu olduğun bir yılı getirsin.
+          Hayatın senden sürekli bir şey “kanıtlamanı” istemesin. İyi gelen şeyler gecikmesin.
+          Yük gibi duranlar, yavaş yavaş hafiflesin. Kendini sevmek için büyük nedenler aramak zorunda kalma;
+          küçük, sıradan günler bile yeterince iyi olsun. Çünkü sen değerlisin.
+        </p>
 
-  <p>
-    Umuyorum ki yanında, seni olduğun gibi gören insanlar çoğalsın. Güvenin pazarlık konusu
-    olmadığı, sevginin yarışa dönmediği ilişkiler kurabilesin. Kalbinin hızını düşüren,
-    sana iyi hissettiren bir düzenin olsun. Ve en önemlisi: Kendine karşı daha nazik ol.
-    Çünkü bazı yaralar, başkalarıyla değil, ancak insanın kendine yaklaşımıyla kapanıyor.
-  </p>
+        <p class="reveal">
+          Umuyorum ki yanında, seni olduğun gibi gören insanlar çoğalsın. Güvenin pazarlık konusu olmadığı,
+          sevginin yarışa dönmediği ilişkiler kurabilesin. Kalbinin hızını düşüren, sana iyi hissettiren
+          bir düzenin olsun. Ve en önemlisi: Kendine karşı daha nazik ol. Çünkü bazı yaralar, başkalarıyla değil,
+          ancak insanın kendine yaklaşımıyla kapanıyor.
+        </p>
 
-  <p>
-    Belki bu mektubu bir an okuyup geçeceksin.
-    Yine de yazmak istedim. Bazen bir cümle, sadece “kötü anmadan” birini anmak içindir.
-    Ben bugün seni böyle anıyorum: Ne büyüterek, ne küçülterek… Olduğu kadar.
-    Doğum günün kutlu olsun.
-  </p>
+        <p class="reveal">
+          Belki bu mektubu bir an okuyup geçeceksin. Yine de yazmak istedim.
+          Bazen bir cümle, sadece “kötü anmadan” birini anmak içindir.
+          Ben bugün seni böyle anıyorum: Ne büyüterek, ne küçülterek… Olduğu kadar.
+          Doğum günün kutlu olsun.
+        </p>
 
-  <p class="closing">
-    İyi ki doğdun.<br />
-    — <span class="signature">Bir tanıdık</span>
-  </p>
-</section>
+        <p class="closing reveal">
+          İyi ki doğdun.<br />
+          — <span class="signature">Bir tanıdık</span>
+        </p>
+      </section>
 
       <footer class="paper__footer">
         <button id="fadeButton" class="fade-btn" type="button" aria-label="Mektubu kapat">
@@ -82,8 +85,7 @@
       </footer>
     </article>
 
-    <!-- Arka plan müziği (MP3) — kontrol yok, loop.
-         Autoplay engellenirse ilk etkileşimde başlar. -->
+    <!-- MP3 root'ta -->
     <audio id="bgm" preload="auto" loop>
       <source src="Ezginin-Gunlugu-Ask-Bir-Ruya.mp3" type="audio/mpeg" />
     </audio>
